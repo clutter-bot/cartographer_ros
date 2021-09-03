@@ -33,8 +33,8 @@
     <!--<remap from="points2" to="/points3" />-->
     <!--<remap from="points2_2" to="/triangulatedPC" />-->
     <!--<remap from="points2" to="/camera/depth/points" />-->
-    <remap from="points2" to="/zed2/zed_node/point_cloud/cloud_registered" />
-    <!--<remap from="scan" to="/LiDAR/LD06"/>-->
+    <!--<remap from="points2" to="/zed2/zed_node/point_cloud/cloud_registered" />-->
+    <remap from="scan" to="/scan"/>
   </node>
 
   <node name="cartographer_occupancy_grid_node" pkg="cartographer_ros"

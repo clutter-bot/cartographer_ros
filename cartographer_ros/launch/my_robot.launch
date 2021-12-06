@@ -26,14 +26,14 @@
   <node name="cartographer_node" pkg="cartographer_ros"
       type="cartographer_node" args="
           -configuration_directory $(find cartographer_ros)/configuration_files
-          -configuration_basename my_robot.lua"
-      output="screen">
+          -configuration_basename my_robot.lua" >
     <remap from="imu" to="/imu/data" />
     <!--<remap from="points2_1" to="/lidar/point_cloud" />-->
     <!--<remap from="points2" to="/points3" />-->
     <!--<remap from="points2_2" to="/triangulatedPC" />-->
     <!--<remap from="points2" to="/camera/depth/points" />-->
     <!--<remap from="points2" to="/zed2/zed_node/point_cloud/cloud_registered" />-->
+    <!--<remap from="scan" to="/LiDAR/LD06"/>-->
     <remap from="scan" to="/scan"/>
   </node>
 
@@ -43,4 +43,9 @@
   <!--<node name="costmap_node" pkg="costmap_2d" type="costmap_2d_node" >
       <rosparam file="$(find cartographer_ros)/params/costmap_params.yaml" command="load" ns="/costmap_node/costmap"/>
   </node>-->
+  
+  <include file="$(find i2c_imu)/launch/mpu_9250.launch"/>
+  
+  <include file="$(find ldlidar)/launch/ld06.launch"/>
+  
 </launch>

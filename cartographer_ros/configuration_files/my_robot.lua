@@ -34,7 +34,7 @@ options = {
   num_point_clouds = 0,
   lookup_transform_timeout_sec = 0.2,
   submap_publish_period_sec = 0.3,
-  pose_publish_period_sec = 5e-3,
+  pose_publish_period_sec = 20e-3,
   trajectory_publish_period_sec = 30e-3,
   rangefinder_sampling_ratio = 1.,
   odometry_sampling_ratio = 1.,
@@ -58,15 +58,15 @@ TRAJECTORY_BUILDER_2D.max_z = 0.3
 
 
 
-POSE_GRAPH.optimize_every_n_nodes = 50
+POSE_GRAPH.optimize_every_n_nodes = 5
 TRAJECTORY_BUILDER_2D.use_imu_data = true
 
 
-POSE_GRAPH.optimization_problem.local_slam_pose_translation_weight = 1e24
-POSE_GRAPH.optimization_problem.local_slam_pose_rotation_weight = 1e24
+POSE_GRAPH.optimization_problem.local_slam_pose_translation_weight = 1e6
+POSE_GRAPH.optimization_problem.local_slam_pose_rotation_weight = 1e4
 POSE_GRAPH.optimization_problem.acceleration_weight = 1e-12
-POSE_GRAPH.optimization_problem.rotation_weight = 1e12
-POSE_GRAPH.optimization_problem.odometry_translation_weight = 1e6
+POSE_GRAPH.optimization_problem.rotation_weight = 1e8
+POSE_GRAPH.optimization_problem.odometry_translation_weight = 1e2
 POSE_GRAPH.optimization_problem.odometry_rotation_weight = 1e1
 
 return options
